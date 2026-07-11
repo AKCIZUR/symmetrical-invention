@@ -1,9 +1,19 @@
 {
-  "name": "noirglass-docs",
+  "name": "noirdocs-astro",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "clean": "node -e \"import fs from 'node:fs'; fs.rmSync('dist', { recursive: true, force: true })\""
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^5.14.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.8.0"
   }
 }

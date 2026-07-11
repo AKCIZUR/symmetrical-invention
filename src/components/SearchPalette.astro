@@ -1,0 +1,95 @@
+---
+import { searchEntries } from '@/data/search';
+---
+
+<div id="search-palette" class="fixed inset-0 z-[60] hidden items-start justify-center bg-black/70 px-4 pt-24 backdrop-blur-xl" aria-hidden="true">
+  <div class="glass-panel w-full max-w-2xl overflow-hidden p-0 shadow-2xl">
+    <div class="border-b border-white/10 p-4">
+      <label class="sr-only" for="search-input">Vyhledávání</label>
+      <input id="search-input" type="search" placeholder="Hledej dokumenty, blog nebo sekce..." class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-white/20" />
+      <p class="mt-2 text-xs text-zinc-500">Použij Ctrl+K nebo ⌘K pro otevření.</p>
+    </div>
+    <div id="search-results" class="max-h-[60vh] overflow-auto p-2"></div>
+  </div>
+</div>
+
+<script type="module" define:vars={{ entries: searchEntries }}>
+  const palette = document.getElementById('search-palette');
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+  const openButtons = document.querySelectorAll('[data-search-open]');
+
+  const normalize = (value) => value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\s/-]/g, ' ').replace(/\s+/g, ' ').trim();
+
+  function render(list) {
+    if (!results) return;
+    if (!list.length) {
+      results.innerHTML = '<div class="p-4 text-sm text-zinc-500">Nic nenalezeno.</div>';
+      return;
+    }
+
+    results.innerHTML = list.map((item) => `
+      <a href="${item.href}" class="search-result">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="text-sm font-medium text-white">${item.title}</div>
+            <div class="mt-1 text-sm text-zinc-400">${item.description}</div>
+          </div>
+          <span class="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-zinc-300">${item.group}</span>
+        </div>
+      </a>`).join('');
+  }
+
+  function search(query) {
+    const q = normalize(query);
+    if (!q) return entries.slice(0, 8);
+    const terms = q.split(' ').filter(Boolean);
+
+    return entries.map((item) => {
+      const haystack = normalize([item.title, item.description, item.group, item.tags.join(' ')].join(' '));
+      const score = terms.reduce((total, term) => total + (haystack.includes(term) ? 3 : 0), 0);
+      return { ...item, score };
+    }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score || a.title.localeCompare(b.title)).slice(0, 8);
+  }
+
+  function openPalette() {
+    palette?.classList.remove('hidden');
+    palette?.classList.add('flex');
+    palette?.setAttribute('aria-hidden', 'false');
+    input?.focus();
+    input?.select?.();
+    render(search(''));
+  }
+
+  function closePalette() {
+    palette?.classList.add('hidden');
+    palette?.classList.remove('flex');
+    palette?.setAttribute('aria-hidden', 'true');
+    if (input) input.value = '';
+  }
+
+  openButtons.forEach((button) => button.addEventListener('click', openPalette));
+
+  document.addEventListener('keydown', (event) => {
+    const isShortcut = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
+    if (isShortcut) {
+      event.preventDefault();
+      openPalette();
+    }
+    if (event.key === 'Escape') closePalette();
+  });
+
+  palette?.addEventListener('click', (event) => {
+    if (event.target === palette) closePalette();
+  });
+
+  input?.addEventListener('input', (event) => render(search(event.target.value)));
+
+  render(search(''));
+
+  window.addEventListener('astro:page-load', () => {
+    if (input) input.value = '';
+    render(search(''));
+    closePalette();
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DocCard from '@/components/DocCard.astro';
+import { getCollection } from 'astro:content';
+
+const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+const groups = docs.reduce((acc, doc) => {
+  (acc[doc.data.section] ??= []).push(doc);
+  return acc;
+}, {});
+---
+
+<BaseLayout title="Dokumentace" description="Přehled všech dokumentů, sekcí a průvodců.">
+  <div class="space-y-8">
+    <div class="glass-panel p-8">
+      <h1 class="text-4xl font-semibold text-white">Dokumentace</h1>
+      <p class="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">
+        Přehledná znalostní báze pro práci s projektem, designem, obsahem, deployem a laděním.
+      </p>
+    </div>
+
+    {Object.entries(groups).map(([section, items]) => (
+      <section class="space-y-4">
+        <h2 class="text-xs tracking-[0.25em] text-zinc-400 uppercase">{section}</h2>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {items.map((doc) => (
+            <DocCard title={doc.data.title} description={doc.data.description} href={`/docs/${doc.slug}/`} meta={doc.data.tags.join(' · ') || section} />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

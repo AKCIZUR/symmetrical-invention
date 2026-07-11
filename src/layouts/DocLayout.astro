@@ -1,0 +1,82 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Toc from '@/components/Toc.astro';
+import { navSections } from '@/data/site';
+
+type Props = {
+  title: string;
+  description: string;
+  section: string;
+  slug: string;
+  headings?: { depth: number; slug: string; text: string }[];
+  prev?: { title: string; href: string } | null;
+  next?: { title: string; href: string } | null;
+};
+
+const { title, description, section, slug, headings = [], prev, next } = Astro.props;
+const pathParts = slug.split('/');
+const labelMap: Record<string, string> = {
+  'getting-started': 'Začínáme',
+  guide: 'Průvodce',
+  customization: 'Customizace',
+  deployment: 'Provoz',
+  troubleshooting: 'Provoz',
+  reference: 'Reference',
+};
+const crumbs = [
+  { label: 'Docs', href: '/docs/' },
+  ...pathParts.map((part, index) => ({
+    label: labelMap[part] ?? decodeURIComponent(part).replace(/-/g, ' '),
+    href: `/docs/${pathParts.slice(0, index + 1).join('/')}/`,
+  })),
+];
+const sectionInfo = navSections.find((item) => item.label === section);
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
+    <article class="space-y-8">
+      <nav class="flex flex-wrap items-center gap-2 text-sm text-zinc-400">
+        {crumbs.map((crumb, index) => (
+          <>
+            <a href={crumb.href} class="hover:text-white">{crumb.label}</a>
+            {index < crumbs.length - 1 ? <span class="text-zinc-600">/</span> : null}
+          </>
+        ))}
+      </nav>
+
+      <div class="glass-panel p-8">
+        <div class="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">{section}</div>
+        <h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">{title}</h1>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">{description}</p>
+      </div>
+
+      <div class="glass-panel prose prose-invert max-w-none p-8 prose-headings:scroll-mt-28 prose-a:text-white prose-strong:text-white prose-code:text-white">
+        <slot />
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {prev ? (
+          <a href={prev.href} class="glass-card p-5">
+            <div class="text-xs tracking-[0.2em] text-zinc-500 uppercase">Předchozí</div>
+            <div class="mt-2 text-lg font-semibold text-white">{prev.title}</div>
+          </a>
+        ) : <div />}
+        {next ? (
+          <a href={next.href} class="glass-card p-5 text-right">
+            <div class="text-xs tracking-[0.2em] text-zinc-500 uppercase">Další</div>
+            <div class="mt-2 text-lg font-semibold text-white">{next.title}</div>
+          </a>
+        ) : <div />}
+      </div>
+    </article>
+
+    <div class="space-y-4">
+      <Toc headings={headings} />
+      <div class="glass-panel p-4">
+        <div class="text-xs tracking-[0.22em] text-zinc-500 uppercase">Sekce</div>
+        <div class="mt-2 text-sm text-zinc-300">{sectionInfo?.items.length ?? 0} dokumentů</div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
