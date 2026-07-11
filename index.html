@@ -3,17 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#07070a" />
-  <meta name="description" content="Koherentní statický docs starter pro GitHub Pages s blogem, API, vyhledáváním a dvojjazyčným rozhraním." />
+  <meta name="theme-color" content="#070708" />
+  <meta name="description" content="VICSDOCS – statický docs starter s vyhledáváním, blogem a vícejazyčným rozhraním." />
   <meta property="og:title" content="VICSDOCS" />
-  <meta property="og:description" content="Koherentní statický docs starter pro GitHub Pages." />
+  <meta property="og:description" content="Statický docs starter s vyhledáváním, blogem a vícejazyčným rozhraním." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="./assets/favicon.svg" />
   <link rel="stylesheet" href="./assets/styles.css" />
-  <title>VICSDOCS</title>
+  <title>VICSDOCS · Dokumentace jinak</title>
 </head>
 <body>
-  <div id="app"></div>
+  <div class="app">
+    <header class="topbar panel">
+      <a class="brand" href="#/cs/home">
+        <div class="brand-badge">VX</div>
+        <div class="brand-text">
+          <div class="brand-title" id="brandTitle">VICSDOCS</div>
+          <div class="brand-sub" id="brandSub">Dokumentace jinak.</div>
+        </div>
+      </a>
+      <div class="actions">
+        <a class="pill" id="navHome" href="#/cs/home">Domů</a>
+        <a class="pill" id="navDocs" href="#/cs/docs/uvod">Dokumentace</a>
+        <a class="pill" id="navBlog" href="#/cs/blog">Blog</a>
+        <a class="pill" id="navApi" href="#/cs/api">API</a>
+        <button class="ghost search-ghost" id="searchBtn" type="button"><span>⌕</span><span id="searchBtnText">Hledat</span></button>
+        <button class="ghost" id="cmdBtn" type="button"><span>⌘</span><span id="cmdBtnText">Příkazová paleta</span></button>
+        <button class="switch" id="langSwitch" type="button">CS</button>
+        <button class="ghost hamburger" id="mobileBtn" type="button" aria-label="Otevřít menu">☰</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar panel">
+        <div class="panel-head">
+          <h3>Obsah</h3>
+          <span class="muted">v1</span>
+        </div>
+        <nav class="tree" id="sidebarTree"></nav>
+      </aside>
+
+      <main class="main" id="main"></main>
+
+      <aside class="toc panel">
+        <div id="toc"></div>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <div>© VICSDOCS</div>
+      <div class="muted">GitHub Pages ready · static · dark UI</div>
+    </footer>
+  </div>
+
+  <div id="searchOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Search">
+    <section class="search-box modal panel">
+      <div class="panel-head">
+        <h3>Search</h3>
+        <button class="switch" id="searchClose" type="button">✕</button>
+      </div>
+      <input id="searchInput" class="field" type="search" placeholder="Hledat stránku, článek nebo endpoint…" autocomplete="off" />
+      <div class="search-results" id="searchResults"></div>
+    </section>
+  </div>
+
+  <div id="paletteOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Command palette">
+    <section class="palette-box modal panel">
+      <div class="panel-head">
+        <h3>Command palette</h3>
+        <button class="switch" id="paletteClose" type="button">✕</button>
+      </div>
+      <input id="paletteInput" class="field" type="search" placeholder="Napiš akci, cestu nebo příkaz…" autocomplete="off" />
+      <div class="palette-results" id="paletteResults"></div>
+    </section>
+  </div>
+
+  <div id="mobileOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Menu">
+    <section class="mobile-sheet panel">
+      <div class="panel-head">
+        <h3>Menu</h3>
+        <button class="switch" id="mobileClose" type="button">✕</button>
+      </div>
+      <div class="actions" style="margin-bottom:12px">
+        <a class="pill" href="#/cs/home">Domů</a>
+        <a class="pill" href="#/cs/docs/uvod">Docs</a>
+        <a class="pill" href="#/cs/blog">Blog</a>
+        <a class="pill" href="#/cs/api">API</a>
+      </div>
+      <nav class="tree" id="mobileTree"></nav>
+    </section>
+  </div>
+
   <script type="module" src="./assets/app.js"></script>
 </body>
 </html>

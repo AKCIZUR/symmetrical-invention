@@ -1,7 +1,6 @@
 {
-  "name": "vicsdocs-super-complete",
+  "name": "vicsdocs-standalone-v2",
   "private": true,
   "version": "2.0.0",
-  "description": "Super complete standalone static docs app",
-  "type": "module"
+  "description": "Standalone static docs starter for VICSDOCS"
 }
