@@ -5,17 +5,20 @@ Produkční dokumentace v češtině pro **MkDocs MaterialX** s implementovaným
 ## Co je v core verzi
 
 - české UI a české texty
-- přehledná struktura dokumentace
+- černé matné sklo
+- 80% vizuální měřítko rozhraní
+- sticky megamenu nahoře
+- skrytý boční panel dokumentace
+- animované přechody mezi stránkami
 - pluginy pro Git metadata, galerii, minifikaci a vyhledávání
 - bezpečné `overrides/`
-- 75% vizuální měřítko rozhraní
 - deploy přes `gh-pages` větev bez Pages artifact konfliktů
 
 ## Spuštění lokálně
 
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate
+# Windows: .venv\Scriptsctivate
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 mkdocs serve

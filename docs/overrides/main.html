@@ -30,7 +30,73 @@
 {% endblock %}
 
 {% block announce %}
-  <div class="md-banner md-banner--soft">
-    <strong>Dokumentace v češtině</strong> · GitHub Pages ready · UI v měřítku 75 %
+  <div class="mx-shell" role="navigation" aria-label="Hlavní navigace">
+    <a class="mx-brand" href="{{ base_url }}">
+      <span class="mx-brand__dot"></span>
+      <span class="mx-brand__text">MaterialX</span>
+      <span class="mx-brand__subtext">černé matné sklo</span>
+    </a>
+
+    <div class="mx-menu" data-mx-menu>
+      <details class="mx-menu__item">
+        <summary>Začínáme</summary>
+        <div class="mx-menu__panel">
+          <a href="{{ base_url }}getting-started/introduction/">Úvod</a>
+          <a href="{{ base_url }}getting-started/installation/">Instalace</a>
+          <a href="{{ base_url }}getting-started/quick-start/">Rychlý start</a>
+        </div>
+      </details>
+      <details class="mx-menu__item">
+        <summary>Průvodce</summary>
+        <div class="mx-menu__panel mx-menu__panel--wide">
+          <a href="{{ base_url }}guide/navigation/">Navigace</a>
+          <a href="{{ base_url }}guide/search/">Vyhledávání</a>
+          <a href="{{ base_url }}guide/editing/">Editace</a>
+          <a href="{{ base_url }}guide/breadcrumbs/">Breadcrumbs</a>
+          <a href="{{ base_url }}guide/toc/">Obsah stránky</a>
+          <a href="{{ base_url }}guide/dark-mode/">Tmavý režim</a>
+          <a href="{{ base_url }}guide/deployment/">Nasazení</a>
+        </div>
+      </details>
+      <details class="mx-menu__item">
+        <summary>Pluginy</summary>
+        <div class="mx-menu__panel mx-menu__panel--wide">
+          <a href="{{ base_url }}plugins/overview/">Přehled</a>
+          <a href="{{ base_url }}plugins/navigation/">Navigace a sidebar</a>
+          <a href="{{ base_url }}plugins/content/">Obsah a include</a>
+          <a href="{{ base_url }}plugins/media/">Média a galerie</a>
+          <a href="{{ base_url }}plugins/git/">Git metadata</a>
+          <a href="{{ base_url }}plugins/deploy/">Nasazení a úklid</a>
+        </div>
+      </details>
+      <details class="mx-menu__item">
+        <summary>Přizpůsobení</summary>
+        <div class="mx-menu__panel">
+          <a href="{{ base_url }}customization/theme/">Téma</a>
+          <a href="{{ base_url }}customization/colors/">Barvy</a>
+          <a href="{{ base_url }}customization/overrides/">Overrides</a>
+        </div>
+      </details>
+      <details class="mx-menu__item">
+        <summary>Obsah</summary>
+        <div class="mx-menu__panel">
+          <a href="{{ base_url }}content/markdown/">Markdown</a>
+          <a href="{{ base_url }}content/seo/">SEO</a>
+          <a href="{{ base_url }}content/social-cards/">Social cards</a>
+        </div>
+      </details>
+      <details class="mx-menu__item">
+        <summary>Reference</summary>
+        <div class="mx-menu__panel">
+          <a href="{{ base_url }}reference/glossary/">Slovník</a>
+          <a href="{{ base_url }}troubleshooting/build/">Build</a>
+          <a href="{{ base_url }}troubleshooting/plugins/">Pluginy</a>
+        </div>
+      </details>
+    </div>
   </div>
+  <div class="mx-banner md-banner--soft">
+    <strong>80 % měřítko · černé matné sklo · animované přechody · megamenu</strong>
+  </div>
+  <div class="mx-page-transition" aria-hidden="true"></div>
 {% endblock %}

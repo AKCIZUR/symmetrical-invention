@@ -28,24 +28,19 @@ theme:
       accent: indigo
       toggle:
         icon: material/weather-sunny
-        name: Přepnout do světlého režimu
+        name: Přepnout do druhé matné varianty
     - scheme: default
       primary: slate
       accent: indigo
       toggle:
         icon: material/weather-night
-        name: Přepnout do tmavého režimu
+        name: Přepnout do první matné varianty
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
     - navigation.path
     - navigation.footer
     - navigation.tracking
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.top
     - toc.follow
     - search.highlight
     - search.share

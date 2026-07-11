@@ -9,7 +9,7 @@ Toto je core verze produkční dokumentace pro MkDocs MaterialX. Je připravená
 - metadata z Git historie
 - obrázky s lightboxem
 - lepší výkon díky minifikaci
-- bezpečný a čitelný design
+- černé matné sklo, animované přechody a megamenu
 
 ## Jak je projekt navržený
 
@@ -31,9 +31,11 @@ repo/
 ## Co je připravené k použití
 
 - čeština v celém rozhraní
-- tmavý režim jako výchozí
-- 75% měřítko zobrazení
-- sticky TOC
+- tmavý režim s černým matným sklem
+- 80% měřítko zobrazení
+- sticky megamenu v horní části
+- skrytý boční panel dokumentace
+- animované přechody mezi stránkami
 - breadcrumbs
 - edit link na GitHub
 - Git metadata v patičce nebo u stránky podle šablony
