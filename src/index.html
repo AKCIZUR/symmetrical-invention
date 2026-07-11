@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Minimalistická dokumentace ve stylu shadcn, s liquid glass designem a rychlým vyhledáváním.">
+  <title>NoirGlass Docs</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script>window.__SITE_BASE__="";</script>
+  <script defer src="assets/js/app.js"></script>
+  
+</head>
+<body data-page="home">
+  <div class="shell">
+    <header class="topbar glass">
+      <div class="topbar__row">
+        <a class="brand" href="index.html">
+          <span class="brand__mark"></span>
+          <span>NoirGlass</span>
+        </a>
+        
+    <nav class="menu" id="menu">
+      <div class="menu__primary">
+        <details class="menu__group">
+          <summary class="menu__link">Začátek</summary>
+          <div class="mega">
+            <a href="docs/zacatek.html"><strong>Rychlý start</strong><span>Spuštění a první úpravy</span></a>
+            <a href="docs/index.html"><strong>Struktura</strong><span>Jak je web postavený</span></a>
+            <a href="docs/markdown.html"><strong>Markdown</strong><span>Pravidla obsahu</span></a>
+          </div>
+        </details>
+        <details class="menu__group">
+          <summary class="menu__link">Design</summary>
+          <div class="mega">
+            <a href="docs/design.html"><strong>Shadcn dark B&W</strong><span>Liquid glass a monochromní styl</span></a>
+            <a href="docs/komponenty.html"><strong>Komponenty</strong><span>Cards, callouts, code blocks</span></a>
+            <a href="docs/navigace.html"><strong>Navigace</strong><span>Megamenu, TOC a přechody</span></a>
+          </div>
+        </details>
+        <details class="menu__group">
+          <summary class="menu__link">Deploy</summary>
+          <div class="mega">
+            <a href="docs/github-pages.html"><strong>GitHub Pages</strong><span>Workflow a publikace</span></a>
+            <a href="docs/troubleshooting.html"><strong>Troubleshooting</strong><span>Debug a opravy</span></a>
+            <a href="docs/index.html#deploy"><strong>Konfigurace</strong><span>Build a routing</span></a>
+          </div>
+        </details>
+        <a class="menu__link" href="docs/index.html">Dokumentace</a>
+      </div>
+      <div class="menu__actions">
+        <button class="icon-btn mobile-toggle" id="menuToggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
+        <button class="icon-btn" data-open-palette aria-label="Otevřít vyhledávání">⌘</button>
+        <button class="icon-btn" data-contrast-toggle aria-label="Přepnout kontrast">◐</button>
+      </div>
+    </nav>
+    
+      </div>
+    </header>
+
+    <main class="layout ">
+      <section class="main">
+        <section class="hero card glass">
+  <div class="hero__content">
+    <p class="eyebrow">GitHub Pages ready • B&W • Liquid glass</p>
+    <h1>Dokumentační appka s čistým dark designem.</h1>
+    <p class="lede">
+      Elegantní statický starter pro produkty, interní dokumentaci i osobní web.
+      Žádné těžké frameworky, žádný vizuální šum. Jen rychlé stránky, megamenu,
+      command palette, TOC a plynulé přechody.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="docs/index.html">Otevřít dokumentaci</a>
+      <button class="btn btn--ghost" data-open-palette>Ctrl + K</button>
+    </div>
+  </div>
+  <div class="hero__panel card glass">
+    <div class="stat">
+      <span>Vzhled</span>
+      <strong>shadcn dark B&W</strong>
+    </div>
+    <div class="stat">
+      <span>Efekty</span>
+      <strong>liquid glass + transitions</strong>
+    </div>
+    <div class="stat">
+      <span>Deploy</span>
+      <strong>GitHub Pages</strong>
+    </div>
+  </div>
+</section>
+
+<section class="grid grid--3">
+  <article class="card glass">
+    <p class="card__kicker">Navigace</p>
+    <h2>Megamenu</h2>
+    <p>Jednoduché, přehledné a rychlé menu s rozbalenými sekcemi, vhodné pro docs i produktový web.</p>
+  </article>
+  <article class="card glass">
+    <p class="card__kicker">Obsah</p>
+    <h2>Markdown-friendly struktura</h2>
+    <p>Stránky jsou připravené jako čitelné bloky obsahu s TOC, kódem, callouty a přehlednými sekcemi.</p>
+  </article>
+  <article class="card glass">
+    <p class="card__kicker">Rychlost</p>
+    <h2>Bez build závislostí</h2>
+    <p>Repo funguje i bez Node balíků. Build script jen kopíruje soubory a generuje sitemapu a search index.</p>
+  </article>
+</section>
+
+
+<section class="card glass">
+  <p class="card__kicker">Rychlé hledání</p>
+  <h2>Najdi obsah během vteřiny</h2>
+  <input id="homeSearch" class="palette__input" type="search" placeholder="Hledat v obsahu…">
+  <div id="homeSearchResults" class="palette__results" style="margin-top:1rem;"></div>
+</section>
+
+<section class="feature-list">
+
+  <div class="feature-list__head">
+    <p class="eyebrow">Co appka umí</p>
+    <h2>Hotový základ pro produkci</h2>
+  </div>
+  <div class="feature-list__grid">
+    <div class="mini card glass">Fulltextové vyhledávání</div>
+    <div class="mini card glass">Command palette</div>
+    <div class="mini card glass">On this page</div>
+    <div class="mini card glass">Page transitions</div>
+    <div class="mini card glass">SEO metadata</div>
+    <div class="mini card glass">GitHub Pages workflow</div>
+  </div>
+</section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>GitHub Pages ready • shadcn dark B&W • liquid glass</span>
+      <span>80% scale • no framework lock-in</span>
+    </footer>
+  </div>
+
+  <div class="palette" id="palette" aria-hidden="true">
+    <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Vyhledávání">
+      <input id="paletteInput" class="palette__input" type="search" placeholder="Hledat stránku…">
+      <div id="paletteResults" class="palette__results"></div>
+    </div>
+  </div>
+</body>
+</html>

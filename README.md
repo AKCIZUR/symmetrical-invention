@@ -1,48 +1,38 @@
-# MaterialX core dokumentace
+# NoirGlass Docs
 
-Produkční dokumentace v češtině pro **MkDocs MaterialX** s implementovanými pluginy, bezpečným buildem a nasazením na **GitHub Pages**.
+Minimalistická statická dokumentační appka v dark B&W stylu.
 
-## Co je v core verzi
+## Co obsahuje
 
-- české UI a české texty
-- černé matné sklo
-- 80% vizuální měřítko rozhraní
-- sticky megamenu nahoře
-- skrytý boční panel dokumentace
-- animované přechody mezi stránkami
-- pluginy pro Git metadata, galerii, minifikaci a vyhledávání
-- bezpečné `overrides/`
-- deploy přes `gh-pages` větev bez Pages artifact konfliktů
+- shadcn inspired vzhled
+- liquid glass panely
+- megamenu v navbaru
+- command palette `Ctrl + K`
+- automatický TOC
+- page transitions
+- code bloky s barevným border line podle jazyka
+- GitHub Pages deploy workflow
 
-## Spuštění lokálně
+## Lokální spuštění
+
+Otevři `src/index.html` nebo spusť jednoduchý server:
 
 ```bash
-python -m venv .venv
-# Windows: .venv\Scriptsctivate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+python -m http.server 8080
 ```
 
 ## Build
 
 ```bash
-mkdocs build --strict
+npm run build
 ```
 
-## Nasazení na GitHub Pages
+Výstup se vytvoří do `dist/`.
 
-Tento core starter publikuje do větve `gh-pages`.
-V GitHub repozitáři nastav Pages na zdroj z větve `gh-pages`.
+## Deploy
 
-1. Nahraď v `mkdocs.yml` hodnoty `site_url`, `repo_url` a `edit_uri`.
-2. Pushni na větev `main`.
-3. Workflow vytvoří statický web a publikuje ho do `gh-pages`.
+Workflow v `.github/workflows/pages.yml` publikuje `dist/` do větve `gh-pages`.
 
-## Struktura pluginů
+## Poznámka k GitHub Pages
 
-- `search` pro fulltext
-- `git-revision-date-localized` pro poslední změny
-- `git-authors` pro autory stránek
-- `glightbox` pro obrázky a galerie
-- `minify` pro menší a rychlejší HTML výstup
+Workflow počítá s projektovou stránkou GitHub Pages. Pokud používáš vlastní doménu nebo user site, je možné upravit base cestu přímo v HTML/JS.

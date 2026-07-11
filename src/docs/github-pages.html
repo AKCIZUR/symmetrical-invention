@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Nasazení, workflow a doporučení pro produkční provoz.">
+  <title>GitHub Pages</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+  <script>window.__SITE_BASE__="../";</script>
+  <script defer src="../assets/js/app.js"></script>
+  
+</head>
+<body data-page="docs">
+  <div class="shell">
+    <header class="topbar glass">
+      <div class="topbar__row">
+        <a class="brand" href="../index.html">
+          <span class="brand__mark"></span>
+          <span>NoirGlass</span>
+        </a>
+        
+    <nav class="menu" id="menu">
+      <div class="menu__primary">
+        <details class="menu__group">
+          <summary class="menu__link">Začátek</summary>
+          <div class="mega">
+            <a href="../docs/zacatek.html"><strong>Rychlý start</strong><span>Spuštění a první úpravy</span></a>
+            <a href="../docs/index.html"><strong>Struktura</strong><span>Jak je web postavený</span></a>
+            <a href="../docs/markdown.html"><strong>Markdown</strong><span>Pravidla obsahu</span></a>
+          </div>
+        </details>
+        <details class="menu__group">
+          <summary class="menu__link">Design</summary>
+          <div class="mega">
+            <a href="../docs/design.html"><strong>Shadcn dark B&W</strong><span>Liquid glass a monochromní styl</span></a>
+            <a href="../docs/komponenty.html"><strong>Komponenty</strong><span>Cards, callouts, code blocks</span></a>
+            <a href="../docs/navigace.html"><strong>Navigace</strong><span>Megamenu, TOC a přechody</span></a>
+          </div>
+        </details>
+        <details class="menu__group">
+          <summary class="menu__link">Deploy</summary>
+          <div class="mega">
+            <a href="../docs/github-pages.html"><strong>GitHub Pages</strong><span>Workflow a publikace</span></a>
+            <a href="../docs/troubleshooting.html"><strong>Troubleshooting</strong><span>Debug a opravy</span></a>
+            <a href="../docs/index.html#deploy"><strong>Konfigurace</strong><span>Build a routing</span></a>
+          </div>
+        </details>
+        <a class="menu__link" href="../docs/index.html">Dokumentace</a>
+      </div>
+      <div class="menu__actions">
+        <button class="icon-btn mobile-toggle" id="menuToggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
+        <button class="icon-btn" data-open-palette aria-label="Otevřít vyhledávání">⌘</button>
+        <button class="icon-btn" data-contrast-toggle aria-label="Přepnout kontrast">◐</button>
+      </div>
+    </nav>
+    
+      </div>
+    </header>
+
+    <main class="layout layout--docs">
+      <section class="main">
+        <article class="article">
+  <header class="article__header">
+    <p class="eyebrow">Deploy</p>
+    <h1>Publikace na GitHub Pages</h1>
+    <p class="lede">Repo je připravené pro automatické nasazení přes GitHub Actions do větve gh-pages.</p>
+  </header>
+
+  <section class="prose">
+    <h2 id="workflow">Workflow</h2>
+    <pre data-lang="yaml"><code>name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:</code></pre>
+
+    <h2 id="dist">Výstupní složka</h2>
+    <p>Build script vytváří <code>dist/</code>, kopíruje statické soubory a generuje sitemapu i <code>.nojekyll</code>.</p>
+
+    <h2 id="public">Public</h2>
+    <p>Po publikaci stačí v nastavení repozitáře přepnout Pages na větev <code>gh-pages</code> nebo nasadit přes Actions workflow.</p>
+  </section>
+</article>
+
+<aside class="toc" aria-label="Obsah stránky"></aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>GitHub Pages ready • shadcn dark B&W • liquid glass</span>
+      <span>80% scale • no framework lock-in</span>
+    </footer>
+  </div>
+
+  <div class="palette" id="palette" aria-hidden="true">
+    <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Vyhledávání">
+      <input id="paletteInput" class="palette__input" type="search" placeholder="Hledat stránku…">
+      <div id="paletteResults" class="palette__results"></div>
+    </div>
+  </div>
+</body>
+</html>

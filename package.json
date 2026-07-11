@@ -1,0 +1,9 @@
+{
+  "name": "noirglass-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "clean": "node -e \"import fs from 'node:fs'; fs.rmSync('dist', { recursive: true, force: true })\""
+  }
+}

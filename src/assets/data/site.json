@@ -1,0 +1,96 @@
+{
+  "name": "NoirGlass Docs",
+  "description": "Minimalistická dokumentace s liquid glass designem.",
+  "pages": [
+    {
+      "title": "NoirGlass Docs",
+      "path": "/index.html",
+      "description": "Minimalistická dokumentace ve stylu shadcn, s liquid glass designem a rychlým vyhledáváním.",
+      "nav": "Domů",
+      "tags": [
+        "home"
+      ],
+      "active": "home"
+    },
+    {
+      "title": "Dokumentace",
+      "path": "/docs/index.html",
+      "description": "Přehled hlavních kapitol, obsahu a pravidel pro úpravy webu.",
+      "nav": "Dokumentace",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Začátek",
+      "path": "/docs/zacatek.html",
+      "description": "První kroky: instalace, lokální spuštění a orientace v projektu.",
+      "nav": "Začátek",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Design systém",
+      "path": "/docs/design.html",
+      "description": "Barvy, glass efekty, typografie a minimalistický vizuální jazyk.",
+      "nav": "Design",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Komponenty",
+      "path": "/docs/komponenty.html",
+      "description": "Karty, callouty, code bloky, tlačítka a navigační prvky.",
+      "nav": "Komponenty",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Navigace",
+      "path": "/docs/navigace.html",
+      "description": "Megamenu, sidebar logika, TOC a page transitions.",
+      "nav": "Navigace",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "GitHub Pages",
+      "path": "/docs/github-pages.html",
+      "description": "Nasazení, workflow a doporučení pro produkční provoz.",
+      "nav": "GitHub Pages",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Troubleshooting",
+      "path": "/docs/troubleshooting.html",
+      "description": "Časté problémy, diagnostika a opravy.",
+      "nav": "Troubleshooting",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    },
+    {
+      "title": "Markdown a obsah",
+      "path": "/docs/markdown.html",
+      "description": "Jak psát obsah, rozšiřovat dokumentaci a držet konzistentní styl.",
+      "nav": "Markdown",
+      "tags": [
+        "docs"
+      ],
+      "active": "docs"
+    }
+  ]
+}
