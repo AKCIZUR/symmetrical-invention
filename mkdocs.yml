@@ -1,13 +1,60 @@
-site_name: VCCSD Docs
-site_description: Produkční documentation starter pro GitHub Pages.
-site_url: https://USERNAME.github.io/REPO/
-repo_url: https://github.com/USERNAME/REPO
-repo_name: REPO
+site_name: MaterialX Docs Starter
+site_description: Production-ready MkDocs MaterialX starter for GitHub Pages.
+site_author: OpenAI
+# Update this to your actual published Pages URL before release.
+site_url: https://example.github.io/materialx-docs-starter/
+
+repo_name: materialx-docs-starter
+repo_url: https://github.com/USERNAME/materialx-docs-starter
 edit_uri: edit/main/docs/
-use_directory_urls: true
+
+docs_dir: docs
+site_dir: site
 
 theme:
-  name: shadcn
+  name: materialx
+  custom_dir: docs/overrides
+  language: en
+  palette:
+    - scheme: slate
+      primary: slate
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: slate
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.footer
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.prefetch
+    - toc.follow
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tabs.link
+    - content.tooltips
+
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      lang:
+        - en
+  - awesome-pages
+  - minify:
+      minify_html: true
 
 markdown_extensions:
   - admonition
@@ -15,42 +62,43 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  - tables
   - toc:
       permalink: true
-      title: Obsah stránky
-  - pymdownx.blocks.caption
-  - pymdownx.blocks.details
-  - pymdownx.blocks.tab
+      toc_depth: 3
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       auto_title: true
-      line_spans: __span
+      linenums: true
+      linenums_style: table
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.details
+  - pymdownx.smartsymbols
 
-plugins:
-  - search
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/USERNAME/materialx-docs-starter
+    - icon: fontawesome/brands/discourse
+      link: https://example.com/community
+  generator: false
 
 extra_css:
-  - assets/custom.css
+  - assets/css/extra.css
+  - assets/css/skeleton.css
+  - assets/css/syntax.css
 
-nav:
-  - Domů: index.md
-  - Start:
-      - Rychlý start: getting-started.md
-      - Struktura projektu: architecture.md
-  - Menu a layout:
-      - Navigace: navigation.md
-      - Komponenty: components.md
-  - Reference:
-      - Přehled: reference.md
-      - FAQ: faq.md
-      - Release notes: releases.md
-      - Changelog: changelog.md
+extra_javascript:
+  - assets/js/app.js
+  - assets/js/skeleton.js

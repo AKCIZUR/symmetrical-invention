@@ -1,23 +1,29 @@
-# MkDocs Shadcn GitHub Ready v2
+# MkDocs MaterialX Production Starter
 
-Produční dokumentační šablona pro GitHub Pages postavená na `mkdocs-shadcn`.
+Production-ready documentation repository for **GitHub Pages** using **MkDocs + MaterialX**.
 
-## Co je uvnitř
+## Features
 
-- levý panel s plnou navigací
-- horní lišta s logem, vyhledáváním a odkazy
-- pravý panel s obsahem stránky
-- vynucený dark režim
-- připravený GitHub Actions deploy
-- více stránek pro start, architekturu, komponenty, reference, FAQ a release notes
+- automatic navigation from the folder structure
+- full-text search
+- breadcrumbs
+- page table of contents with active section tracking
+- previous / next navigation
+- GitHub edit links
+- SEO and Open Graph tags
+- lazy loading helpers
+- skeleton loading
+- custom syntax highlighting accents per language
+- GitHub Actions deployment to Pages
+- custom theme overrides without modifying theme source
 
-## Spuštění lokálně
+## Quick start
 
 ```bash
 python -m venv .venv
-# Windows:
+# Windows
 .venv\Scripts\activate
-# macOS / Linux:
+# macOS / Linux
 source .venv/bin/activate
 
 pip install -r requirements.txt
@@ -30,12 +36,26 @@ mkdocs serve
 mkdocs build
 ```
 
-## Deploy
+## Deploy to GitHub Pages
 
-Workflow `.github/workflows/deploy.yml` publikuje obsah na GitHub Pages z větve `main`.
+This repository includes a GitHub Actions workflow in `.github/workflows/deploy.yml`.
 
-## Co upravit před nasazením
+Before publishing, update these values in `mkdocs.yml`:
 
-- `site_url`, `repo_url` a `repo_name` v `mkdocs.yml`
-- logo a favicon v `docs/assets/`
-- vlastní texty v `docs/`
+- `site_url`
+- `repo_url`
+- `edit_uri`
+
+If you use a project site, keep the Pages source as **GitHub Actions** in repository settings.
+
+## Folder structure
+
+- `docs/` — Markdown content
+- `docs/assets/` — CSS and JavaScript
+- `docs/overrides/` — theme overrides
+- `scripts/` — build helpers
+- `.github/workflows/` — GitHub Pages deploy workflow
+
+## Notes
+
+MaterialX follows the same MkDocs-style workflow as Material. The repo is structured so the site can grow without changing the core theme files.
