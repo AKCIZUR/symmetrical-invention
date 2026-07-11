@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% set meta_description = config.site_description %}
+  {% set meta_title = config.site_name %}
+  {% set meta_url = none %}
+  {% if page is defined and page %}
+    {% if page.meta is defined and page.meta %}
+      {% set meta_description = page.meta.get("description", meta_description) %}
+    {% endif %}
+    {% if page.title %}
+      {% set meta_title = page.title %}
+    {% endif %}
+    {% if page.canonical_url %}
+      {% set meta_url = page.canonical_url %}
+    {% endif %}
+  {% endif %}
+
+  <meta name="description" content="{{ meta_description }}">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type" content="website">
+  {% if meta_url %}
+    <meta property="og:url" content="{{ meta_url }}">
+    <link rel="canonical" href="{{ meta_url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block announce %}
+  <div class="md-banner md-banner--soft">
+    <strong>Dokumentace v češtině</strong> · GitHub Pages ready · UI v měřítku 75 %
+  </div>
+{% endblock %}

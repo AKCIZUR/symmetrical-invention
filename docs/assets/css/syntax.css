@@ -1,0 +1,17 @@
+.md-typeset pre > code {
+  border-radius: 1rem;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn { color: #8b5cf6; }
+.highlight .s,
+.highlight .s2 { color: #22c55e; }
+.highlight .c,
+.highlight .c1 { color: #94a3b8; font-style: italic; }
+.highlight .m,
+.highlight .mi { color: #06b6d4; }
+.highlight .nf { color: #f59e0b; }
+.highlight .nb { color: #3b82f6; }
+.highlight .nt { color: #ef4444; }
+.highlight .nc { color: #a855f7; }
