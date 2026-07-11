@@ -1,11 +1,9 @@
-site_name: MaterialX Docs Starter
-site_description: Production-ready MkDocs MaterialX starter for GitHub Pages.
+site_name: MaterialX Docs
+site_description: Kompletní produkční dokumentace pro GitHub Pages.
 site_author: OpenAI
-# Update this to your actual published Pages URL before release.
-site_url: https://example.github.io/materialx-docs-starter/
-
-repo_name: materialx-docs-starter
-repo_url: https://github.com/USERNAME/materialx-docs-starter
+site_url: https://example.github.io/materialx-docs/
+repo_name: materialx-docs
+repo_url: https://github.com/USERNAME/materialx-docs
 edit_uri: edit/main/docs/
 
 docs_dir: docs
@@ -14,20 +12,20 @@ site_dir: site
 theme:
   name: materialx
   custom_dir: docs/overrides
-  language: en
+  language: cs
   palette:
-    - scheme: grey
-      primary: blue
+    - scheme: slate
+      primary: slate
       accent: indigo
       toggle:
         icon: material/weather-sunny
-        name: Switch to light mode
+        name: Přepnout do světlého režimu
     - scheme: default
-      primary: blue grey
+      primary: slate
       accent: indigo
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
+        name: Přepnout do tmavého režimu
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -47,12 +45,36 @@ theme:
     - content.tabs.link
     - content.tooltips
 
+nav:
+  - Domů: index.md
+  - Začínáme:
+      - Úvod: getting-started/introduction.md
+      - Instalace: getting-started/installation.md
+      - Rychlý start: getting-started/quick-start.md
+  - Průvodce:
+      - Navigace: guide/navigation.md
+      - Vyhledávání: guide/search.md
+      - Editace: guide/editing.md
+      - Nasazení: guide/deployment.md
+  - Přizpůsobení:
+      - Téma: customization/theme.md
+      - Barvy: customization/colors.md
+      - Overrides: customization/overrides.md
+  - Obsah:
+      - Markdown: content/markdown.md
+      - SEO: content/seo.md
+      - Social cards: content/social-cards.md
+  - Reference:
+      - Slovník: reference/glossary.md
+  - Řešení problémů:
+      - Build: troubleshooting/build.md
+
 plugins:
   - search:
       separator: '[\s\-\.]+'
       lang:
+        - cs
         - en
-  - awesome-pages
   - minify:
       minify_html: true
 
@@ -87,12 +109,10 @@ markdown_extensions:
   - pymdownx.smartsymbols
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/USERNAME/materialx-docs-starter
-    - icon: fontawesome/brands/discourse
-      link: https://example.com/community
-  generator: false
+      link: https://github.com/USERNAME/materialx-docs
 
 extra_css:
   - assets/css/extra.css
