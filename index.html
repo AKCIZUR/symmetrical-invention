@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070707" />
+  <meta name="description" content="VICSDOCS - moderní docs starter s vyhledáváním, blogem a dvojjazyčným rozhraním." />
+  <meta property="og:title" content="VICSDOCS" />
+  <meta property="og:description" content="Moderní docs starter s vyhledáváním, blogem a dvojjazyčným rozhraním." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="./assets/favicon.svg" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <title>VICSDOCS | Dokumentace jinak</title>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#/cs/home" aria-label="VICSDOCS home">
+        <img src="./assets/logo.svg" alt="" width="220" height="42" />
+      </a>
+      <div class="top-actions">
+        <a class="nav-pill" id="topNavDocs" href="#/cs/docs/uvod">Dokumentace</a>
+        <a class="nav-pill" id="topNavBlog" href="#/cs/blog">Blog</a>
+        <a class="nav-pill" id="topNavApi" href="#/cs/api">API</a>
+        <button class="ghost-btn" id="searchBtn" type="button">⌕ <span>Hledat</span></button>
+        <button class="ghost-btn" id="cmdBtn" type="button">⌘ <span>Příkazová paleta</span></button>
+        <button class="switcher" id="langSwitch" type="button">CS</button>
+        <button class="ghost-btn mobile-fab" id="mobileBtn" type="button">☰</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="panel-head">
+          <h3>Obsah</h3>
+          <span class="muted">v1</span>
+        </div>
+        <nav class="tree" id="sidebarTree"></nav>
+      </aside>
+
+      <div id="main"></div>
+
+      <aside class="toc">
+        <div id="toc"></div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div id="footer">© VICSDOCS</div>
+      <div class="muted">GitHub Pages ready • static • dark UI</div>
+    </footer>
+  </div>
+
+  <div id="searchOpenBackdrop" class="modal-backdrop hide"></div>
+  <div id="paletteOpenBackdrop" class="modal-backdrop hide"></div>
+  <div id="mobileBackdrop" class="drawer-backdrop hide"></div>
+
+  <section id="searchOpenModal" class="modal-box hide modal">
+    <div class="modal-head">
+      <h3>Hledat</h3>
+      <button class="ghost-btn" id="searchClose" type="button">✕</button>
+    </div>
+    <div style="padding:16px">
+      <input id="searchField" class="field" type="search" placeholder="Hledat…" autocomplete="off" />
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </section>
+
+  <section id="paletteOpenModal" class="modal-box hide modal">
+    <div class="modal-head">
+      <h3>Command palette</h3>
+      <button class="ghost-btn" id="paletteClose" type="button">✕</button>
+    </div>
+    <div style="padding:16px">
+      <input id="paletteField" class="field" type="search" placeholder="Napiš akci…" autocomplete="off" />
+      <div id="paletteResults" class="palette-results"></div>
+    </div>
+  </section>
+
+  <aside id="mobileDrawer" class="mobile-drawer hide"></aside>
+
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
