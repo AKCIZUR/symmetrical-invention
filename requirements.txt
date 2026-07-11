@@ -1,4 +1,0 @@
-mkdocs
-mkdocs-materialx
-mkdocs-minify-plugin
-pymdown-extensions
